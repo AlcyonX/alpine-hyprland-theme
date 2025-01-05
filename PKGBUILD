@@ -19,18 +19,14 @@ pkgdesc="Alpine theme for Hyprland with configurations for Waybar, Wofi, and Hyp
 arch=('x86_64')
 url="https://github.com/AlcyonX/alpine-theme"
 license=('MIT')
-depends=('hyprland')
-optdepends=('waybar' 'wofi' 'hyprpaper')
+depends=('hyprland', 'noto-fonts')
+optdepends=('waybar' 'wofi' 'hyprpaper', 'ttf-jetbrains-mono-nerd')
 source=("alpine-theme.tar.gz")
 sha256sums=('SKIP')  # Remplacez par le checksum du paquet sourcez
 # Fonction de construction
-build() {
-  cd "$srcdir/"
-  # Pas de construction nécessaire, car il s'agit d'un paquet de configuration
-}
 
 # Fonction d'installation
-package() {
+post_install() {
   cd "$srcdir/"
   
   # Installation des fichiers de configuration pour Waybar
@@ -38,7 +34,7 @@ package() {
   install -Dm644 waybar/style.css ~/.config/waybar/style.css
   
   # Installation des fichiers de configuration pour Hyprland
-  install -Dm644 hypr/hyprland.conf ~/.config/hypr/hyprland.config
+  install -Dm644 hypr/hyprland.conf ~/.config/hypr/hyprland.conf
   
   # Installation des fichiers de configuration pour Wofi
   install -Dm644 wofi/style.css ~/.config/wofi/style.css
