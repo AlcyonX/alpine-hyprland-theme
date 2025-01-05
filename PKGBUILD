@@ -20,7 +20,7 @@ arch=('x86_64')
 url="https://github.com/AlcyonX/alpine-theme"
 license=('MIT')
 depends=('hyprland', 'noto-fonts')
-optdepends=('waybar' 'wofi' 'hyprpaper', 'ttf-jetbrains-mono-nerd')
+optdepends=('waybar' 'wofi' 'hyprpaper' 'ttf-jetbrains-mono-nerd')
 source=("alpine-theme.tar.gz")
 sha256sums=('SKIP')  # Remplacez par le checksum du paquet sourcez
 # Fonction de construction
